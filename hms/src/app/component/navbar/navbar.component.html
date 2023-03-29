@@ -1,62 +1,82 @@
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark d-none d-lg-block " style="z-index: 2000; background-color: black;">
-    <div class="container-fluid">
-        <!-- Navbar brand -->
-        <a class="navbar-brand nav-link" href="#">
-            <strong>HMS</strong>
-        </a>
-        
-        <div class="collapse navbar-collapse" id="navbarExample01">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item active">
-                    <a class="nav-link " aria-current="page" routerLink ="/home">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " routerLink ="/about" >About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " routerLink="/department-details"
-                        rel="nofollow" >Departments</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " routerLink ="/doctor-details" >Doctors</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " routerLink ="/contact" >Contact</a>
-                </li>
-                
-            </ul>
-
-            <ul class="navbar-nav d-flex flex-row">
-                <!-- Icons -->
-                <li class="nav-item me-3 me-lg-0">
-                    <a class="nav-link" href="https://www.youtube.com/channel/UC5CF7mLQZhvx8O5GODZAhdA"
-                        rel="nofollow" target="_blank">
-                        <i class="fab fa-youtube"></i>
-                    </a>
-                </li>
-                <li class="nav-item me-3 me-lg-0">
-                    <a class="nav-link" href="https://www.facebook.com/mdbootstrap" rel="nofollow" target="_blank">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                </li>
-                <li class="nav-item me-3 me-lg-0">
-                    <a class="nav-link" href="https://twitter.com/MDBootstrap" rel="nofollow" target="_blank">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                </li>
-                <li class="nav-item me-3 me-lg-0">
-                    <a class="nav-link" href="https://github.com/mdbootstrap/mdb-ui-kit" rel="nofollow"
-                        target="_blank">
-                        <i class="fab fa-github"></i>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="btn btn-outline-light" href="/login"
-                    target="_blank" role="button">Login</a>
-                </li>
-            </ul>
+<header>
+    <div class="header-top-bar">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <ul class="top-bar-info list-inline-item pl-0 mb-0">
+                        <li class="list-inline-item"><a routerLink="mailto:support@gmail.com"><i
+                                    class="icofont-support-faq mr-2"></i>support@novena.com</a></li>
+                        <li class="list-inline-item"><i class="icofont-location-pin mr-2"></i>Address Bypass Calicut,
+                            Kerala </li>
+                    </ul>
+                </div>
+                <div class="col-lg-6">
+                    <div class="text-lg-right top-right-bar mt-2 mt-lg-0">
+                        <a routerLink="tel:+23-345-67890">
+                            <span>Call Now : </span>
+                            <span>823-4565-13456</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</nav>
-<!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navigation" id="navbar">
+        <div class="container">
+            <a class="navbar-brand" routerLink="/home">
+                <h3>HMS</h3>
+            </a>
+
+            <!-- <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarmain"
+                aria-controls="navbarmain" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="icofont-navigation-menu"></span>
+            </button> -->
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarmain"
+                aria-controls="navbarmain" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarmain">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                    <li class="nav-item active">
+                        <a class="nav-link" routerLink="/home">Home</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" routerLink="/about">About</a></li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" routerLink="/department-details" id="dropdown02"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Department <i
+                                class="icofont-thin-down"></i></a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdown02">
+                            <li><a class="dropdown-item" routerLink="/department-details">Departments</a></li>
+                            <li><a class="dropdown-item" routerLink="">Department Single</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" routerLink="doctor.html" id="dropdown03"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Doctors <i
+                                class="icofont-thin-down"></i></a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdown03">
+                            <li><a class="dropdown-item" routerLink="/doctor-details">Doctors</a></li>
+                            <li><a class="dropdown-item" routerLink="">Doctor Single</a></li>
+                            <li><a class="dropdown-item" routerLink="/appoinment">Appoinment</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" routerLink="/contact">Contact</a></li>
+                </ul>
+                <form class="d-flex">
+                    <a routerLink="/appoinment" target="_blank" class="btn btn-main-2 btn-round-full me-2">create
+                        account as patient<i class="icofont-simple-right ml-2  "></i></a>
+
+                    <a routerLink="/appoinment" target="_blank" class="btn btn-main-2  btn-round-full me-2">Login <i
+                            class="icofont-simple-right ml-2  "></i></a>
+
+                </form>
+
+            </div>
+        </div>
+    </nav>
+</header>
