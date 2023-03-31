@@ -13,6 +13,7 @@ class department(models.Model):
 class doctor(models.Model):
     name = models.CharField(max_length=30)
     email = models.EmailField(max_length=50)
+    qualification = models.CharField(max_length=500)
     password = models.CharField(max_length=20)
     department = models.CharField(max_length=50)
     profile_img =  models.ImageField(upload_to="media/")

@@ -6,6 +6,7 @@ import { AddDoctorComponent } from './components/add-doctor/add-doctor.component
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ViewAppointmentsComponent } from './components/view-appointments/view-appointments.component';
@@ -16,7 +17,8 @@ const routes: Routes = [
   {
     path: '', component: AdminComponent,
     children: [
-      { path: "", redirectTo: "home", pathMatch: "full" },
+      { path: "", redirectTo: "login", pathMatch: "full" },
+      { path: "login", component: LoginComponent },
       { path: "dashboard", component: DashboardComponent },
       { path: "navbar", component: NavbarComponent },
       { path: "home", component: HomeComponent },

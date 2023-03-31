@@ -12,6 +12,8 @@ import { NavbarComponent } from './component/navbar/navbar.component';
 import { PatientRegistrationComponent } from './component/patient-registration/patient-registration.component';
 import { ContactComponent } from './component/contact/contact.component';
 import { NavbarTabsComponent } from './reusable/navbar-tabs/navbar-tabs.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -26,13 +28,15 @@ import { NavbarTabsComponent } from './reusable/navbar-tabs/navbar-tabs.componen
     NavbarComponent,
     PatientRegistrationComponent,
     ContactComponent,
-    NavbarTabsComponent
-    
+    NavbarTabsComponent  
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

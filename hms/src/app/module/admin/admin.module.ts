@@ -15,6 +15,8 @@ import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { ViewDoctorsComponent } from './components/view-doctors/view-doctors.component';
 import { ViewPatientsComponent } from './components/view-patients/view-patients.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -38,7 +40,9 @@ import { ProfileComponent } from './components/profile/profile.component';
   ],
   imports: [
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    FormsModule,
+    HttpClientModule
   ]
 })
 export class AdminModule { }

@@ -25,55 +25,61 @@
 
                 <div class="card bg-glass">
                     <div class="card-body px-4 py-5 px-md-5">
-                        <form>
+                        <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
                             <div class="d-flex align-items-center mb-3 pb-1">
                                 <span class="h1 fw-bold mb-0">Patient registration</span>
-                                
                             </div>
 
                             <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign up your
                                 account</h5>
                             <!-- name input -->
                             <div class="form-outline mb-4">
-                                <input type="text" id="form3Example3" class="form-control" />
+                                <input type="text" class="form-control" formControlName="name"/>
                                 <label class="form-label" for="form3Example3">Name</label>
                             </div>
 
                             
                             <!--Address  input -->
                             <div class="form-outline mb-4">
-                                <input type="text" id="form3Example3" class="form-control" />
+                                <input type="text" class="form-control" formControlName="address"/>
                                 <label class="form-label" for="form3Example3">Address</label>
                             </div>
 
                             <!-- Email input -->
                             <div class="form-outline mb-4">
-                                <input type="email" id="form3Example3" class="form-control" />
+                                <input type="text" class="form-control" formControlName="gender"/>
+                                <label class="form-label" for="form3Example3">Gender</label>
+                            </div>
+
+
+                            <!-- Email input -->
+                            <div class="form-outline mb-4">
+                                <input type="email" class="form-control" formControlName="email"/>
                                 <label class="form-label" for="form3Example3">Email</label>
                             </div>
 
                             <!-- Phone input -->
                             <div class="form-outline mb-4">
-                                <input type="number" id="form3Example3" class="form-control" />
+                                <input type="number" class="form-control" formControlName="phone"/>
                                 <label class="form-label" for="form3Example3">Phone</label>
                             </div>
 
                             <!-- Dob input -->
                             <div class="form-outline mb-4">
-                                <input type="text" id="form3Example3" class="form-control" />
+                                <input type="date" class="form-control" formControlName="dob"/>
                                 <label class="form-label" for="form3Example3">Dob</label>
                             </div>
 
                             <!-- Password input -->
                             <div class="form-outline mb-4">
-                                <input type="password" id="form3Example4" class="form-control" />
+                                <input type="password" class="form-control" formControlName="password"/>
                                 <label class="form-label" for="form3Example4">Password</label>
                             </div>
 
                             <!-- conform input -->
                             <div class="form-outline mb-4">
-                                <input type="password" id="form3Example4" class="form-control" />
-                                <label class="form-label" for="form3Example4">Conform Password</label>
+                                <input type="password" class="form-control" formControlName="confirmPassword"/>
+                                <label class="form-label" for="form3Example4">Confirm Password</label>
                             </div>
 
 

@@ -22,24 +22,25 @@
 
                 <div class="card bg-glass">
                     <div class="card-body px-4 py-5 px-md-5">
-                        <form ngform>
+                        <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm.value)">
                             <div class="d-flex align-items-center mb-3 pb-1">
                                 <span class="h1 fw-bold mb-0">Login</span>
-                                
+
                             </div>
 
                             <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your
                                 account</h5>
                             <!-- Email input -->
                             <div class="form-outline mb-5">
-                                <input type="email" id="form3Example3" class="form-control" />
+                                <input type="email" id="form3Example3" class="form-control" ngModel name="username" />
                                 <label class="form-label" for="form3Example3">Username</label>
                             </div>
-                            
+
 
                             <!-- Password input -->
                             <div class="form-outline mb-5">
-                                <input type="password" id="form3Example4" class="form-control" />
+                                <input type="password" id="form3Example4" class="form-control" ngModel
+                                    name="password" />
                                 <label class="form-label" for="form3Example4">Password</label>
                             </div>
 
@@ -55,4 +56,3 @@
         </div>
     </div>
 </section>
-    
