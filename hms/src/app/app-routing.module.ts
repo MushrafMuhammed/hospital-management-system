@@ -8,6 +8,7 @@ import { HomeComponent } from './component/home/home.component';
 import { LoginComponent } from './component/login/login.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
 import { PatientRegistrationComponent } from './component/patient-registration/patient-registration.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 const routes: Routes = [
   { path: "", redirectTo: "home", pathMatch: "full" },
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'admin', loadChildren: () => import('./module/admin/admin.module').then(m => m.AdminModule) },
   { path: 'patient', loadChildren: () => import('./module/patient/patient.module').then(m => m.PatientModule) },
   { path: 'doctor', loadChildren: () => import('./module/doctor/doctor.module').then(m => m.DoctorModule) },
+  { path: '**', pathMatch: 'full', component: PagenotfoundComponent },
 ];
 
 @NgModule({

@@ -12,6 +12,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { ViewAppointmentsComponent } from './components/view-appointments/view-appointments.component';
 import { ViewDoctorsComponent } from './components/view-doctors/view-doctors.component';
 import { ViewPatientsComponent } from './components/view-patients/view-patients.component';
+import { AuthGuard } from './guard/auth.guard';
 
 const routes: Routes = [
   {
@@ -19,16 +20,16 @@ const routes: Routes = [
     children: [
       { path: "", redirectTo: "login", pathMatch: "full" },
       { path: "login", component: LoginComponent },
-      { path: "dashboard", component: DashboardComponent },
+      { path: "dashboard", component: DashboardComponent, canActivate:[AuthGuard] },
       { path: "navbar", component: NavbarComponent },
-      { path: "home", component: HomeComponent },
-      { path: "add-department", component: AddDepartmentComponent },
-      { path: "add-doctor", component: AddDoctorComponent },
-      { path: "change-password", component: ChangePasswordComponent },
-      { path: "view-appointment", component: ViewAppointmentsComponent },
-      { path: "view-doctors", component:ViewDoctorsComponent },
-      { path : "view-patients", component:ViewPatientsComponent},
-      { path: "profile", component: ProfileComponent },
+      { path: "home", component: HomeComponent, canActivate:[AuthGuard] },
+      { path: "add-department", component: AddDepartmentComponent, canActivate:[AuthGuard] },
+      { path: "add-doctor", component: AddDoctorComponent, canActivate:[AuthGuard] },
+      { path: "change-password", component: ChangePasswordComponent, canActivate:[AuthGuard] },
+      { path: "view-appointment", component: ViewAppointmentsComponent, canActivate:[AuthGuard] },
+      { path: "view-doctors", component:ViewDoctorsComponent, canActivate:[AuthGuard] },
+      { path : "view-patients", component:ViewPatientsComponent, canActivate:[AuthGuard]},
+      { path: "profile", component: ProfileComponent, canActivate:[AuthGuard] },
 
       
     ]

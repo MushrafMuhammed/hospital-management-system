@@ -13,14 +13,14 @@ def login_fun(request):
     password = params['password']
 
     try:
-        admin = administrator.object.get(
+        admin = administrator.objects.get(
             email = username,
-            password = password
+            password = password   
         )
         name = admin.name
-        email = admin.email   
-        return JsonResponse({'statusCode': 200, 'user':name, 'username':email})
+        email = admin.email
+        return JsonResponse({'statusCode': 200, 'token': admin.id, 'user':name, 'username':email})
     
     except:
-        msg ='Invalid credentials'
+        msg ='Invalid Login attempt'
         return JsonResponse({'message':msg})

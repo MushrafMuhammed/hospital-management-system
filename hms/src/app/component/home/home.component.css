@@ -5,6 +5,7 @@
     background: url("../../../assets/images/home-img.jpg") no-repeat;
     background-size: cover;
     min-height: 550px;
+    z-index: -1;
   }
   
   .banner .block {
@@ -79,11 +80,12 @@
 
   .features {
     margin-top: -70px;
+    
   }
 
-  .feature-section{
+  /* .feature-section{
     z-index: 1;
-  }
+  } */
 
   .feature-item {
     flex-basis: 33.33%;
