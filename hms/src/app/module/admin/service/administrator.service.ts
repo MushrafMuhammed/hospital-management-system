@@ -15,6 +15,10 @@ export class AdministratorService {
     return this.http.post(this.baseUrl + 'login', adminData)
   }
 
+  add_department(deptData:any): Observable<any>{
+    return this.http.post(this.baseUrl + 'add-department', deptData)
+  }
+
 
 
 

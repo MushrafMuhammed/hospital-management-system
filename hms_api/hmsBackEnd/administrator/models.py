@@ -1,16 +1,17 @@
 from django.db import models
 
 # Create your models here.
-class administrator(models.Model):
+class Administrator(models.Model):
     name = models.CharField(max_length=30)
     email = models.EmailField(max_length=50)
     password = models.CharField(max_length=20)
     job_title = models.CharField(max_length=50)
 
-class department(models.Model):
-    name = models.CharField(max_length=200)
+class Department(models.Model):
+    name = models.CharField(max_length=500, default='')
+    description = models.CharField(max_length=1000, default='')
     
-class doctor(models.Model):
+class Doctor(models.Model):
     name = models.CharField(max_length=30)
     email = models.EmailField(max_length=50)
     qualification = models.CharField(max_length=500)
