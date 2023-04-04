@@ -6,86 +6,97 @@
     <div class="col-md-10">
         <div class="card-body p-md-5 text-black">
             <h3 class="mb-5 text-uppercase"><b>Doctor Registration</b></h3>
-        
-            <form method="POST" enctype="multipart/form-data" id="patientReg_form">
+
+            <form #doctorData="ngForm" (ngSubmit)="onSubmit(doctorData.value)">
                 <div class="row">
-        
-                    <div class="form-outline mb-4">
+
+                    <div class="form-group mb-4">
                         <label class="form-label" for="form3Example1m">Full name</label>
-                        <input type="text" id="form3Example1m" class="form-control form-control-lg" name="name" />
+                        <input type="text" id="form3Example1m" class="form-control form-control-lg" ngModel
+                            name="name" />
                     </div>
-        
-                    <div class="form-outline mb-4">
+
+                    <div class="form-group mb-4">
                         <label class="form-label" for="form3Example9">Address</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
+                        <textarea class="form-control" ngModel name="address" rows="5"></textarea>
                     </div>
-        
-                    <div class="row form-outline mb-4">
-                        <div class="col-md-2">
-                            <label class="form-label" for="form3Example9">Gender</label>
+
+
+                    <div class="form-group mb-4">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label class="form-label" for="form3Example9">Gender</label>
+                            </div>
+                            <div class="col-md-10">
+
+                                <div class="form-check">
+                                    <input type="radio" ngModel name="gender" value="male">
+                                    <label class="form-check-label" for="male">
+                                        Male
+                                    </label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input type="radio" ngModel name="gender" value="female">
+                                    <label class="form-check-label" for="female">
+                                        Female
+                                    </label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input type="radio" ngModel name="gender" value="others">
+                                    <label class="form-check-label" for="others">
+                                        Others
+                                    </label>
+                                </div>
+
+                            </div>
                         </div>
-                        <div class="col-md-10">
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"
-                                    checked>
-                                <label class="form-check-label" for="flexRadioDefault1">
-                                    Male
-                                </label>
-                            </div>
-        
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                    Female
-                                </label>
-                            </div>
-        
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                    Others
-                                </label>
-                            </div>
-                        </div>
                     </div>
-        
-                    <div class="form-outline mb-4">
-                        <label class="form-label" for="form3Example9">Date of Birth</label>
-                        <input type="text" id="form3Example9" class="form-control form-control-lg" name="username" />
-                    </div>
-        
-                    <div class="form-outline mb-4">
-                        <label class="form-label" for="form3Example9">Place</label>
-                        <input type="text" id="form3Example9" class="form-control form-control-lg" name="username" />
-                    </div>
-        
-                    <div class="form-outline mb-4">
-                        <label class="form-label" for="form3Example9">Mobile</label>
-                        <input type="text" id="form3Example9" class="form-control form-control-lg" name="username" />
-                    </div>
-        
-                    <div class="form-outline mb-4">
+
+                    <div class="form-group mb-4">
                         <label class="form-label" for="form3Example9">Email</label>
-                        <input type="email" id="form3Example9" class="form-control form-control-lg" name="username" />
+                        <input type="email" class="form-control form-control-lg" ngModel name="email">
                     </div>
-        
-                    <span id="message"></span>
-                    <div class="form-outline mb-4">
-                        <label class="form-label" for="form3Example8">Profile photo</label>
-                        <input type="file" class="form-control" id="dp" name="dp_img" />
+
+                    <div class="form-group mb-4">
+                        <label class="form-label" for="form3Example9">Mobile</label>
+                        <input type="text" class="form-control form-control-lg" minlength="0" ngModel name="phone" />
+                    </div>
+
+                    <div class="form-group mb-4">
+                        <label class="form-label" for="form3Example9">Qualification</label>
+                        <input type="text" class="form-control form-control-lg" ngModel name="qualification" />
+                    </div>
+
+                    <div class="form-group mb-4">
+                        <label class="form-label" for="form3Example9">Password</label>
+                        <input type="text" class="form-control form-control-lg" ngModel name="password" />
+                    </div>
+
+                    <div class="form-group mb-4">
+                        <label class="form-label" for="form3Example9">Department</label>
+                        <select class="form-group form-select" aria-label="Default select example" ngModel name="department">
+                            <option selected >Select department</option>
+                            <option *ngFor="let department of departments" value={{department.id}}>{{department.name}}</option>
+                        </select>
+                    </div>
+
+
+                    <div class="form-group mb-4">
+                        <label class="form-label" for="form3Example8" >Profile photo</label>
+                        <input type="file" class="form-control" (change)="onImageChanged($event)" ngModel name="profile_img" />
                     </div>
                 </div>
-        
-        
-        
+
+
+
                 <div class="d-flex justify-content-end pt-3">
                     <button type="submit" class="btn btn-success btn-lg ms-2">Register</button>
                 </div>
             </form>
-        
+
         </div>
-        
+
     </div>
 </div>
-
-
