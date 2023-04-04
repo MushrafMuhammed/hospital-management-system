@@ -55,7 +55,7 @@ def view_department(request):
     return JsonResponse({'departmentsList': departments})
 
 @api_view(['POST'])
-def addDoctor(request):
+def add_doctor(request):
     params = request.data
     print(params)
     serialized_data = DoctorSerializer(data=params) 
@@ -73,3 +73,12 @@ def addDoctor(request):
     
     
     return JsonResponse({'statusCode': status_code, 'message': msg})
+
+@api_view(['GET'])
+def view_doctor(request):
+    doctor = Doctor.objects.all()
+    serialized_data= DoctorSerializer(doctor, many=True)
+    count = doctor.count()
+    doctors=serialized_data.data
+    
+    return JsonResponse({'doctorsList': doctors, 'drCount': count})

@@ -5,6 +5,8 @@ urlpatterns = [
     path('login', views.login_fun),
     path('add-department', views.addDepartment),
     path('view-department', views.view_department),
-    path('add-doctor', views.addDoctor),
+    path('add-doctor', views.add_doctor),
+    path('view-doctor', views.view_doctor),
+
 
 ]

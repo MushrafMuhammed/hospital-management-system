@@ -12,7 +12,7 @@
                     <div>
                         <h5><b>Doctors</b></h5>
                     </div>
-                    <div class=" px-5">Total Number of Doctors - 20</div>
+                    <div class=" px-5">Total Number of Doctors - {{count}}</div>
                     <div class=" px-5">Total Number of Active Doctors - 3</div>
                 </div>
             </div>
@@ -21,12 +21,13 @@
                 <table class="table">
                     <thead class="bg-dark">
                         <tr class="th_row text-light">
-                            <th class="font-13 border-0 min-150">ID</th>
                             <th class="font-13 border-0 min-150">Name</th>
+                            <th class="font-13 border-0 min-150">Department</th>
+                            <th class="font-13 border-0 min-150">Qualification</th>
                             <th class="font-13 border-0 min-150">
                                 Number
                             </th>
-                            <th class="font-13 border-0 min-100">Date</th>
+                            <th class="font-13 border-0 min-100">Email</th>
                             <!-- <th class="font-13 border-0 min-150">
                                 Status
                             </th> -->
@@ -34,26 +35,26 @@
                     </thead>
                     <tbody class="tr_hover">
                         <!-- ko foreach: subscribersList -->
-                        <tr>
+                        <tr *ngFor="let doctor of doctors">
+
                             <td class="font-13 text-black-50 pointer">
-                                <!-- ko text: username -->32074046400122<!-- /ko -->
+                                <!-- ko text: username -->{{doctor.name}}<!-- /ko -->
                             </td>
                             <td class="font-13 text-black-50 pointer">
                                 <a style="  color: inherit;" href="">
-                                    <!-- ko text: name -->Girish<!-- /ko -->
+                                    <!-- ko text: name -->{{doctor.department.name}}<!-- /ko -->
                                 </a>
                             </td>
                             <td class="font-13 text-black-50 pointer">
-                                <!-- ko text: mobile_number -->9846537013<!-- /ko -->
+                                <!-- ko text: mobile_number -->{{doctor.qualification}}<!-- /ko -->
                             </td>
                             <td class="font-13 text-black-50 pointer">
-                                <!-- ko text: plan_name -->21 Feb 2023<!-- /ko -->
+                                <!-- ko text:  -->{{doctor.phone}}<!-- /ko -->
+                            </td>
+                            <td class="font-13 text-black-50 pointer">
+                                <!-- ko text:  -->{{doctor.email}}<!-- /ko -->
                             </td>
 
-                            <!-- <td class="font-13 pointer text-success">
-                                <i class="fa fa-circle pe-2 font-11"></i>
-                                Active
-                            </td> -->
                         </tr>
                         <!-- /ko -->
                     </tbody>

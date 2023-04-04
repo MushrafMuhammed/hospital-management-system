@@ -27,6 +27,10 @@ export class AdministratorService {
     return this.http.post(this.baseUrl + 'add-doctor', doctorData)
   }
 
+  view_doctor(): Observable<any> {
+    return this.http.get(this.baseUrl + 'view-doctor' )
+  }
+
 
 
 

@@ -16,7 +16,7 @@ class Doctor(models.Model):
     address = models.CharField(max_length=1000)
     gender = models.CharField(max_length=50)
     email = models.EmailField(max_length=100)
-    phone = models.CharField(max_length=15)
+    phone  = models.CharField(max_length=15)
     qualification = models.CharField(max_length=500)
     password = models.CharField(max_length=20)
     department = models.ForeignKey(Department, on_delete=models.CASCADE)
