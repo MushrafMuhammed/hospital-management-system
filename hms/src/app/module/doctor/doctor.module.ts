@@ -8,6 +8,8 @@ import { HomeComponent } from './components/home/home.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ViewPatientsComponent } from './components/view-patients/view-patients.component';
 import { AddPrescriptionComponent } from './components/add-prescription/add-prescription.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import { AddPrescriptionComponent } from './components/add-prescription/add-pres
     HomeComponent,
     ProfileComponent,
     ViewPatientsComponent,
-    AddPrescriptionComponent
+    AddPrescriptionComponent,
+    SidebarComponent,
+    NavbarComponent
   ],
   imports: [
     CommonModule,

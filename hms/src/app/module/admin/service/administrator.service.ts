@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -28,11 +28,13 @@ export class AdministratorService {
   }
 
   view_doctor(): Observable<any> {
-    return this.http.get(this.baseUrl + 'view-doctor' )
+    return this.http.get(this.baseUrl + 'view-doctor')
   }
 
-
-
+  
+  getMyProfile(token: any): Observable<any> {
+      return this.http.get(this.baseUrl + 'my-profile/'+ token);
+    }
 
 
   getToken() {

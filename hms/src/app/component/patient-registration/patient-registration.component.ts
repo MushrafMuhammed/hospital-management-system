@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { AdministratorService } from 'src/app/module/admin/service/administrator.service';
 
 @Component({
   selector: 'app-patient-registration',
@@ -7,6 +8,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./patient-registration.component.css']
 })
 export class PatientRegistrationComponent {
+  constructor (private service : AdministratorService ){ }
 
   myForm = new FormGroup({
     name: new FormControl('', Validators.required),
@@ -19,7 +21,23 @@ export class PatientRegistrationComponent {
     confirmPassword: new FormControl('', Validators.required)
   })
 
-  onSubmit() {
-    console.log(this.myForm.value)
+  onSubmit(formdata:any) {
+    
+    const patientData = new FormData()
+
+    patientData.append('name',formdata['name'])
+    patientData.append('address',formdata['address'])
+    patientData.append('gender',formdata['gender'])
+    patientData.append('email',formdata['email'])
+    patientData.append('phone',formdata['phone'])
+    patientData.append('dob',formdata['dob'])
+    patientData.append('password',formdata['password'])
+
+    console.log(patientData)
+
+    this.service
+
+
+    
   }
 }

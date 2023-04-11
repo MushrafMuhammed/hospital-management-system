@@ -1,5 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 @import url("https://fonts.googleapis.com/css?family=Exo:500,600,700|Roboto&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: boarder;
+}
 html {
   overflow-x: hidden;
 }
@@ -59,4 +65,3 @@ input[type="email"], input[type="password"], input[type="text"], input[type="tel
     box-shadow: none;
     border: 1px solid #223a66;
   }
-  

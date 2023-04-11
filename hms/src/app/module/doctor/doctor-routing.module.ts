@@ -6,6 +6,8 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { ViewAppointmentsComponent } from './components/view-appointments/view-appointments.component';
 import { ViewPatientsComponent } from './components/view-patients/view-patients.component';
 import { DoctorComponent } from './doctor.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 const routes: Routes = [
   { path: '', component: DoctorComponent,
@@ -15,7 +17,11 @@ const routes: Routes = [
     {path:"add-prescription", component:AddPrescriptionComponent},
     {path: "profile", component:ProfileComponent},
     {path : "view-appointment", component:ViewAppointmentsComponent},
-    {path: "view-patients", component: ViewPatientsComponent}
+    {path: "view-patients", component: ViewPatientsComponent},
+    {path: "sidebar", component: SidebarComponent},
+    {path: "navbar", component: NavbarComponent}
+
+
 ]
 }];
 

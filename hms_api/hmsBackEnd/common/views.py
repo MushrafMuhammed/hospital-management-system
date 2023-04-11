@@ -7,3 +7,8 @@ from rest_framework.decorators import api_view
 def login_fun(request):
     
     return JsonResponse()
+
+@api_view(['POST'])
+def patientRegistration_fun(requst):
+    
+    return JsonResponse() 

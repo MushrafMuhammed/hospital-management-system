@@ -15,7 +15,7 @@ import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { ViewDoctorsComponent } from './components/view-doctors/view-doctors.component';
 import { ViewPatientsComponent } from './components/view-patients/view-patients.component';
 import { ProfileComponent } from './components/profile/profile.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -42,7 +42,8 @@ import { HttpClientModule } from '@angular/common/http';
     CommonModule,
     AdminRoutingModule,
     FormsModule,
-    HttpClientModule
+    ReactiveFormsModule,
+    HttpClientModule,
   ]
 })
 export class AdminModule { }

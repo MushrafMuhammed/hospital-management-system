@@ -2,10 +2,9 @@ from django.shortcuts import render
 from django.http import JsonResponse
 from rest_framework.decorators import api_view
 
-from administrator.serializer import DepartmentSerializer, DoctorSerializer
+from administrator.serializer import AdministratorSerializer, DepartmentSerializer, DoctorSerializer
 
 from . models import Administrator, Department, Doctor
-
 
 # Create your views here.
 @api_view(['POST'])
@@ -81,4 +80,21 @@ def view_doctor(request):
     count = doctor.count()
     doctors=serialized_data.data
     
-    return JsonResponse({'doctorsList': doctors, 'drCount': count})
+    return JsonResponse({ 'doctorsList': doctors, 'drCount': count })
+
+@api_view(['GET'])
+def view_profile(request,token):
+    print(token)
+    my_profile = Administrator.objects.get(id=token)
+    serialized_data = AdministratorSerializer(my_profile)
+    print(serialized_data.data)
+    
+    profile= serialized_data.data
+
+    return JsonResponse({'profile_details': profile})
+
+
+    
+
+
+
