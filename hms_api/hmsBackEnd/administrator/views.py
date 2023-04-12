@@ -93,6 +93,29 @@ def view_profile(request,token):
 
     return JsonResponse({'profile_details': profile})
 
+@api_view(['POST'])
+def changePassword(request,token):
+    params= request.data
+    currentpass= params['currentPassword']
+    newpassword = params['newPassword']
+    msg = ''
+    admin= Administrator.objects.get(id = token)
+    if (admin.password == currentpass):
+        admin.password =  newpassword
+        admin.save()
+        msg='successfully password changed'
+    else:
+        msg = 'check your old password'
+    return JsonResponse({'errorMessage':msg})
+
+
+  
+    
+
+
+
+
+    
 
     
 

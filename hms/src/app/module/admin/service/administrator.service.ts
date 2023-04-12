@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Token } from '@angular/compiler';
+import { Injectable, NgProbeToken } from '@angular/core';
 import { Observable } from 'rxjs';
 
 
@@ -34,6 +35,11 @@ export class AdministratorService {
   
   getMyProfile(token: any): Observable<any> {
       return this.http.get(this.baseUrl + 'my-profile/'+ token);
+    }
+
+  changePassword(token:any, currentPassword:any, newPassword:any): Observable<any>{
+    return this.http.post(this.baseUrl + 'change-passwo+tokenrd/', currentPassword,newPassword)
+
     }
 
 

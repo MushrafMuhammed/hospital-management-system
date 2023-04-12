@@ -43,7 +43,7 @@ import { HttpClientModule } from '@angular/common/http';
     AdminRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule,
+    HttpClientModule
   ]
 })
 export class AdminModule { }

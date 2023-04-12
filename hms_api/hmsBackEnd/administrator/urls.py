@@ -8,6 +8,8 @@ urlpatterns = [
     path('add-doctor', views.add_doctor),
     path('view-doctor', views.view_doctor),
     path('my-profile/<int:token>', views.view_profile),
+    path('change-password/<int:token>', views.changePassword),
+
 
 
 
