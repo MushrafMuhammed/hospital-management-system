@@ -38,11 +38,12 @@ def addDepartment(request):
         if serialized_data.is_valid():
             serialized_data.save()
             status_code = 200
-            msg = 'Department added Successfuly'
+            msg = 'Department added Successfully'
         else:
             status_code = 403
             msg = "Invalid entry"
-    except:
+    except Exception as e:
+        print(e)
         status_code = 401
         msg = 'somthing went wrong'
 
@@ -107,7 +108,7 @@ def changePassword(request):
     newpassword = params['newPassword']
 
     admin = Administrator.objects.get(id=token)
-    
+
     if (admin.password == currentpass):
         admin.password = newpassword
         admin.save()

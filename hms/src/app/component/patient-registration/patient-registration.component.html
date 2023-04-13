@@ -25,7 +25,7 @@
 
                 <div class="card bg-glass">
                     <div class="card-body px-4 py-5 px-md-5">
-                        <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)">
+                        <form [formGroup]="patientForm" (ngSubmit)="onSubmit()" >
                             <div class="d-flex align-items-center mb-3 pb-1">
                                 <span class="h1 fw-bold mb-0">Patient registration</span>
                             </div>
@@ -35,14 +35,26 @@
                             <!-- name input -->
                             <div class="form-group mb-4">
                                 <label class="form-label" for="form3Example3">Name</label>
-                                <input type="text" class="form-control" formControlName="name"/>
+                                <input type="text" class="form-control" formControlName="name" />
+                                <div
+                                    *ngIf="patientForm.get('name')?.invalid && (patientForm.get('name')?.dirty || patientForm.get('name')?.touched)">
+                                    <div *ngIf="patientForm.get('name')?.hasError('required')">Current Password is
+                                        required</div>
+                                </div>
                             </div>
 
-                            
+
                             <!--Address  input -->
                             <div class="form-group mb-4">
                                 <label class="form-label" for="form3Example3">Address</label>
-                                <input type="text" class="form-control" formControlName="address"/>
+                                <input type="text" class="form-control" formControlName="address" />
+                                <div
+                                    *ngIf="patientForm.get('address')?.invalid && (patientForm.get('address')?.dirty || patientForm.get('address')?.touched)">
+                                    <div *ngIf="patientForm.get('address')?.hasError('required')">Current Password is
+                                        required</div>
+                                    <div *ngIf="patientForm.get('address')?.hasError('minlength')">Current Password
+                                        should be minimum 8 characters</div>
+                                </div>
                             </div>
 
                             <!-- Email input -->
@@ -52,68 +64,98 @@
                                         <label class="form-label" for="form3Example9">Gender</label>
                                     </div>
                                     <div class="col-md-10">
-        
+
                                         <div class="form-check">
                                             <input type="radio" formControlName="gender" value="male">
                                             <label class="form-check-label" for="male">
                                                 Male
                                             </label>
                                         </div>
-        
+
                                         <div class="form-check">
                                             <input type="radio" formControlName="gender" value="female">
                                             <label class="form-check-label" for="female">
                                                 Female
                                             </label>
                                         </div>
-        
+
                                         <div class="form-check">
                                             <input type="radio" formControlName="gender" value="others">
                                             <label class="form-check-label" for="others">
                                                 Others
                                             </label>
                                         </div>
-        
+
                                     </div>
                                 </div>
+                                <div *ngIf="patientForm.get('gender')?.invalid && (patientForm.get('gender')?.dirty || patientForm.get('gender')?.touched)"
+                                    class="text-danger">
+                                    <div *ngIf="patientForm.get('gender')?.hasError('required')">Gender is required
+                                    </div>
+                                </div>
+
                             </div>
 
 
                             <!-- Email input -->
                             <div class="form-group mb-4">
                                 <label class="form-label" for="form3Example3">Email</label>
-                                <input type="email" class="form-control" formControlName="email"/>
+                                <input type="email" class="form-control" formControlName="email" />
+                                <div
+                                    *ngIf="patientForm.get('email')?.invalid && (patientForm.get('email')?.dirty || patientForm.get('email')?.touched)">
+                                    <div *ngIf="patientForm.get('email')?.hasError('required')">Current Password is
+                                        required</div>
+                                </div>
                             </div>
 
                             <!-- Phone input -->
                             <div class="form-group mb-4">
                                 <label class="form-label" for="form3Example3">Phone</label>
-                                <input type="number" class="form-control" formControlName="phone"/>
+                                <input type="number" class="form-control" formControlName="phone" />
+                                <div
+                                    *ngIf="patientForm.get('phone')?.invalid && (patientForm.get('phone')?.dirty || patientForm.get('phone')?.touched)">
+                                    <div *ngIf="patientForm.get('phone')?.hasError('required')">Current Password is
+                                        required</div>
+                                </div>
                             </div>
 
                             <!-- Dob input -->
                             <div class="form-group mb-4">
                                 <label class="form-label" for="form3Example3">Dob</label>
-                                <input type="date" class="form-control" formControlName="dob"/>
+                                <input type="date" class="form-control" formControlName="dob" />
+                                <div
+                                    *ngIf="patientForm.get('dob')?.invalid && (patientForm.get('dob')?.dirty || patientForm.get('dob')?.touched)">
+                                    <div *ngIf="patientForm.get('dob')?.hasError('required')">Current Password is
+                                        required</div>
+                                </div>
                             </div>
 
                             <!-- Password input -->
                             <div class="form-group mb-4">
                                 <label class="form-label" for="form3Example4">Password</label>
-                                <input type="password" class="form-control" formControlName="password"/>
+                                <input type="password" class="form-control" formControlName="password" />
+                                <div
+                                    *ngIf="patientForm.get('password')?.invalid && (patientForm.get('password')?.dirty || patientForm.get('password')?.touched)">
+                                    <div *ngIf="patientForm.get('password')?.hasError('required')">Current Password is
+                                        required</div>
+                                </div>
                             </div>
 
                             <!-- conform input -->
                             <div class="form-group mb-4">
                                 <label class="form-label" for="form3Example4">Confirm Password</label>
-                                <input type="password" class="form-control" formControlName="confirmPassword"/>
+                                <input type="password" class="form-control" formControlName="confirmPassword" />
+                                <div
+                                    *ngIf="patientForm.get('confirmPassword')?.invalid && (patientForm.get('confirmPassword')?.dirty || patientForm.get('confirmPassword')?.touched)">
+                                    <div *ngIf="patientForm.get('confirmPassword')?.hasError('required')">Current
+                                        Password is required</div>
+                                </div>
                             </div>
 
 
                             <!-- Submit button -->
-                            <button type="submit" class="btn btn-primary btn-block mb-4">
-                                Sign Up
-                            </button>
+                            <button type="submit" class="btn btn-danger" [disabled]="!patientForm.valid">Submit</button>
+
 
                         </form>
                     </div>

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { AdministratorService } from 'src/app/module/admin/service/administrator.service';
+import { CommonService } from '../service/common.service';
 
 @Component({
   selector: 'app-patient-registration',
@@ -8,9 +8,9 @@ import { AdministratorService } from 'src/app/module/admin/service/administrator
   styleUrls: ['./patient-registration.component.css']
 })
 export class PatientRegistrationComponent {
-  constructor (private service : AdministratorService ){ }
+  constructor (private service : CommonService ){ }
 
-  myForm = new FormGroup({
+  patientForm = new FormGroup({
     name: new FormControl('', Validators.required ),
     address: new FormControl('', Validators.required),
     gender : new FormControl('', Validators.required),
@@ -18,24 +18,26 @@ export class PatientRegistrationComponent {
     phone: new FormControl('', [Validators.required, Validators.pattern(/^\d{10}$/)]),
     dob: new FormControl('', Validators.required),
     password: new FormControl('', [Validators.required, Validators.minLength(6)]),
-    confirmPassword: new FormControl('', Validators.required)
+    confirmPassword: new FormControl('', [Validators.required, Validators.minLength(6)])
   })
 
-  onSubmit(formdata:any) {
-    
-    const patientData = new FormData()
+  onSubmit() {
+    const patientData: any = new FormData()
 
-    patientData.append('name',formdata['name'])
-    patientData.append('address',formdata['address'])
-    patientData.append('gender',formdata['gender'])
-    patientData.append('email',formdata['email'])
-    patientData.append('phone',formdata['phone'])
-    patientData.append('dob',formdata['dob'])
-    patientData.append('password',formdata['password'])
+    patientData.append('name', this.patientForm.value.name)
+    patientData.append('address',this.patientForm.value.address)
+    patientData.append('gender',this.patientForm.value.gender)
+    patientData.append('email',this.patientForm.value.email)
+    patientData.append('phone',this.patientForm.value.phone)
+    patientData.append('dob',this.patientForm.value.dob)
+    patientData.append('password',this.patientForm.value.password)
 
     console.log(patientData)
 
-    this.service
+    this.service.patientReg(patientData).subscribe((res:{message:any})=>{
+      console.log(res.message)
+      alert(res.message)
+    })
 
 
     
