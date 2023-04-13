@@ -32,15 +32,14 @@ export class AdministratorService {
     return this.http.get(this.baseUrl + 'view-doctor')
   }
 
-  
+
   getMyProfile(token: any): Observable<any> {
-      return this.http.get(this.baseUrl + 'my-profile/'+ token);
-    }
+    return this.http.get(this.baseUrl + 'my-profile/' + token);
+  }
 
-  changePassword(token:any, currentPassword:any, newPassword:any): Observable<any>{
-    return this.http.post(this.baseUrl + 'change-passwo+tokenrd/', currentPassword,newPassword)
-
-    }
+  changePassword(formData: any): Observable<any> {
+    return this.http.post(this.baseUrl + 'change-password', formData)
+  }
 
 
   getToken() {

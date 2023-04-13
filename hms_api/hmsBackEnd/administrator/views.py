@@ -7,6 +7,8 @@ from administrator.serializer import AdministratorSerializer, DepartmentSerializ
 from . models import Administrator, Department, Doctor
 
 # Create your views here.
+
+
 @api_view(['POST'])
 def login_fun(request):
     params = request.data
@@ -46,20 +48,21 @@ def addDepartment(request):
 
     return JsonResponse({'statusCode': status_code, 'message': msg})
 
+
 @api_view(['GET'])
 def view_department(request):
     department = Department.objects.all()
-    serialized_data= DepartmentSerializer(department, many=True)
-    departments=serialized_data.data
+    serialized_data = DepartmentSerializer(department, many=True)
+    departments = serialized_data.data
     return JsonResponse({'departmentsList': departments})
+
 
 @api_view(['POST'])
 def add_doctor(request):
     params = request.data
     print(params)
-    serialized_data = DoctorSerializer(data=params) 
-        
-   
+    serialized_data = DoctorSerializer(data=params)
+
     if serialized_data.is_valid():
         serialized_data.save()
         print(serialized_data.errors)
@@ -69,55 +72,47 @@ def add_doctor(request):
         print(serialized_data.errors)
         status_code = 403
         msg = "Invalid entry"
-    
-    
+
     return JsonResponse({'statusCode': status_code, 'message': msg})
+
 
 @api_view(['GET'])
 def view_doctor(request):
     doctor = Doctor.objects.all()
-    serialized_data= DoctorSerializer(doctor, many=True)
+    serialized_data = DoctorSerializer(doctor, many=True)
     count = doctor.count()
-    doctors=serialized_data.data
-    
-    return JsonResponse({ 'doctorsList': doctors, 'drCount': count })
+    doctors = serialized_data.data
+
+    return JsonResponse({'doctorsList': doctors, 'drCount': count})
+
 
 @api_view(['GET'])
-def view_profile(request,token):
+def view_profile(request, token):
     print(token)
     my_profile = Administrator.objects.get(id=token)
     serialized_data = AdministratorSerializer(my_profile)
     print(serialized_data.data)
-    
-    profile= serialized_data.data
+
+    profile = serialized_data.data
 
     return JsonResponse({'profile_details': profile})
 
+
 @api_view(['POST'])
-def changePassword(request,token):
-    params= request.data
-    currentpass= params['currentPassword']
-    newpassword = params['newPassword']
+def changePassword(request):
     msg = ''
-    admin= Administrator.objects.get(id = token)
+    params = request.data
+    token = params['token']
+    currentpass = params['currentPassword']
+    newpassword = params['newPassword']
+
+    admin = Administrator.objects.get(id=token)
+    
     if (admin.password == currentpass):
-        admin.password =  newpassword
+        admin.password = newpassword
         admin.save()
-        msg='successfully password changed'
+        msg = 'successfully password changed'
     else:
         msg = 'check your old password'
-    return JsonResponse({'errorMessage':msg})
-
-
-  
     
-
-
-
-
-    
-
-    
-
-
-
+    return JsonResponse({'errorMessage': msg})

@@ -53,9 +53,13 @@ export class ChangePasswordComponent {
 
 
   changePasswordForm !: FormGroup;
+  token: any
+  currentPassword:any
+  newPassword:any
+  confirmNewPassword:any
 
   constructor(private service: AdministratorService, private router: Router) { }
-  ngOnInit(): void {
+  ngOnInit() {
     this.changePasswordForm = new FormGroup({
       currentPassword: new FormControl('', Validators.required),
       newPassword: new FormControl('', [Validators.required, Validators.minLength(8)]),
@@ -63,30 +67,28 @@ export class ChangePasswordComponent {
     });
   }
 
-  onSubmit(): void {
+  onSubmit() {
+    this.token = localStorage.getItem('logToken')
+    this.currentPassword = this.changePasswordForm.value.currentPassword
+    this.newPassword = this.changePasswordForm.value.newPassword
+    this.confirmNewPassword = this.changePasswordForm.value.confirmPassword
+    
+    const formData= new FormData()
+    formData.append('token',this.token)
+    formData.append('currentPassword', this.currentPassword)
+    formData.append('newPassword', this.newPassword)
 
-    const currentPassword = this.changePasswordForm.value.currentPassword
-    const newPassword = this.changePasswordForm.value.newPassword
-    const confirmNewPassword = this.changePasswordForm.value.confirmPassword
 
-    console.log(currentPassword, newPassword, confirmNewPassword)
-    if (newPassword !== confirmNewPassword) {
-      console.log('invalid')
-      alert('invalid')
+    if (this.newPassword !== this.confirmNewPassword) {
+      alert('The passwords you entered do not match. Please try again.')
     }
 
     else {
-      const token = localStorage.getItem('logToken')
-      // console.log(token)
-      alert('Done')
-
-      this.service.changePassword(token, currentPassword, newPassword).subscribe((res: { message: any }) => {
-        console.log(res.message)
-        alert(res.message)
-      })
+        this.service.changePassword(formData).subscribe((res: { errorMessage: any }) => {
+        alert(res.errorMessage)
+        this.changePasswordForm.reset()
+      }) 
     }
-
-
   }
 
 
