@@ -9,6 +9,7 @@ import { LoginComponent } from './component/login/login.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
 import { PatientRegistrationComponent } from './component/patient-registration/patient-registration.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { AppoinmentComponent } from './component/appoinment/appoinment.component';
 
 const routes: Routes = [
   { path: "", redirectTo: "home", pathMatch: "full" },
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: "contact", component:ContactComponent },
   { path : "patient-registration", component:PatientRegistrationComponent},
   { path : "navbar", component:NavbarComponent},
+  { path : "appoinment", component:AppoinmentComponent},
   { path: 'admin', loadChildren: () => import('./module/admin/admin.module').then(m => m.AdminModule) },
   { path: 'patient', loadChildren: () => import('./module/patient/patient.module').then(m => m.PatientModule) },
   { path: 'doctor', loadChildren: () => import('./module/doctor/doctor.module').then(m => m.DoctorModule) },

@@ -15,6 +15,7 @@ import { NavbarTabsComponent } from './reusable/navbar-tabs/navbar-tabs.componen
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { AppoinmentComponent } from './component/appoinment/appoinment.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
     PatientRegistrationComponent,
     ContactComponent,
     NavbarTabsComponent,
-    PagenotfoundComponent  
+    PagenotfoundComponent,
+    AppoinmentComponent  
     
   ],
   imports: [

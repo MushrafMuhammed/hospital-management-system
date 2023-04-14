@@ -117,3 +117,12 @@ def changePassword(request):
         msg = 'check your old password'
     
     return JsonResponse({'errorMessage': msg})
+
+@api_view(['GET'])
+def getDoctor(request,deptData):
+    doctots = Doctor.objects.filter(
+        department = deptData
+    )
+    serialized_data = DoctorSerializer(doctots, many=True)
+    
+    return JsonResponse({'doctors':serialized_data.data})
