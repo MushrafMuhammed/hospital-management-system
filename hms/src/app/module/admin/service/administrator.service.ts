@@ -10,6 +10,8 @@ import { Observable } from 'rxjs';
 export class AdministratorService {
 
   baseUrl = 'http://127.0.0.1:8000/administrator/'
+  baseUrl2 = 'http://127.0.0.1:8000/patient/'
+
   constructor(private http: HttpClient) { }
 
   admin_login(adminData: any): Observable<any> {
@@ -39,6 +41,10 @@ export class AdministratorService {
 
   changePassword(formData: any): Observable<any> {
     return this.http.post(this.baseUrl + 'change-password', formData)
+  }
+
+  view_patient():Observable<any>{
+    return this.http.get(this.baseUrl2 + 'view-patients')
   }
 
 

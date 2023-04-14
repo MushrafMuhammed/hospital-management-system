@@ -66,6 +66,7 @@ INSTALLED_APPS = [
     'common',
     'administrator',
     'doctor',
+    'patient',
     'rest_framework',
     'corsheaders'
 ]

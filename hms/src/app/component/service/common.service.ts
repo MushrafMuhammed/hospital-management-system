@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CommonService {
-  baseUrl = 'http://127.0.0.1:8000/doctor/'
+  baseUrl = 'http://127.0.0.1:8000/patient/'
   constructor(private http: HttpClient) { }
 
   patientReg(formData:any):Observable<any>{
