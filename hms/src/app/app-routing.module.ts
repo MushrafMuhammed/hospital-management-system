@@ -10,6 +10,7 @@ import { NavbarComponent } from './component/navbar/navbar.component';
 import { PatientRegistrationComponent } from './component/patient-registration/patient-registration.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { AppoinmentComponent } from './component/appoinment/appoinment.component';
+import { PatientDetailsComponent } from './component/patient-details/patient-details.component';
 
 const routes: Routes = [
   { path: "", redirectTo: "home", pathMatch: "full" },
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: "doctor-details", component: DoctorDetailsComponent },
   { path: "login", component: LoginComponent },
   { path: "contact", component:ContactComponent },
+  { path: "patient-detais", component:PatientDetailsComponent },
   { path : "patient-registration", component:PatientRegistrationComponent},
   { path : "navbar", component:NavbarComponent},
   { path : "appoinment", component:AppoinmentComponent},

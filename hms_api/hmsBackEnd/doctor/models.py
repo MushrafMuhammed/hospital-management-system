@@ -1,16 +1,20 @@
 from django.db import models
 
+from administrator.models import Department, Doctor
+
 # Create your models here.
 
 class Appointment(models.Model) :
-    token_no = models.IntegerField(default=0)
-    name = models.CharField(max_length=50)
-    email = models.EmailField(max_length=50)
-    number = models.CharField(max_length=50)
-    appointment_date = models.CharField(max_length=30)
-    department = models.CharField(max_length=50)
-    doctor = models.CharField(max_length=50)
-    message = models.CharField(max_length=500, default="")
+    token_no = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=100)
+    email = models.EmailField(max_length=100)
+    phone = models.BigIntegerField()
+    appointment_date = models.DateField()
+    appointment_time = models.CharField(max_length=50, default='')
+    department = models.ForeignKey(Department, on_delete=models.CASCADE)
+    doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE)
+    message = models.CharField(max_length=2000)
+    
 
 class Prescription (models.Model):
   patient = models.CharField(max_length=200)

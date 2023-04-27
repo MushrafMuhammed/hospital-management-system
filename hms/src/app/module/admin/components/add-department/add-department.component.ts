@@ -13,6 +13,7 @@ export class AddDepartmentComponent {
     this.service.add_department(formdata).subscribe((res: { statusCode: number, message: string }) => {
       
       alert(res.message)
+      formdata.rest()
     })
 
   }

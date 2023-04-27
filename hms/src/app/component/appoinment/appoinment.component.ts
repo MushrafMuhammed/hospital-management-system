@@ -8,6 +8,9 @@ import { AdministratorService } from 'src/app/module/admin/service/administrator
   styleUrls: ['./appoinment.component.css']
 })
 export class AppoinmentComponent {
+parseInt(arg0: any): any {
+throw new Error('Method not implemented.');
+}
   constructor(private commonService: CommonService, private adminService: AdministratorService) { }
 
 
@@ -29,9 +32,18 @@ export class AppoinmentComponent {
   onChange(event:any){
     this.deptValue=event.target.value
     this.commonService.getdoctors(this.deptValue).subscribe((res:{doctors:any})=>{
-      console.log(res.doctors)
+      // console.log(res.doctors)
       this.doctorList = res.doctors
     })
+  }
+
+  onSubmit(formData:any){
+    console.log(formData)
+    this.commonService.getappoinment(formData).subscribe((res:{message:any})=>{
+      alert(res.message)
+      
+    })
+
   }
 
 }

@@ -90,6 +90,8 @@
                                 </div>
                                 <div *ngIf="patientForm.get('gender')?.invalid && (patientForm.get('gender')?.dirty || patientForm.get('gender')?.touched)"
                                     class="text-danger">
+                                <!-- <div *ngIf="patientForm.get('gender')?.invalid && (patientForm.get('email')?.dirty || patientForm.get('email')?.touched)"
+                                    class="text-danger"> -->
                                     <div *ngIf="patientForm.get('gender')?.hasError('required')">Gender is required
                                     </div>
                                 </div>

@@ -13,7 +13,7 @@ class DepartmentSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class DoctorSerializer(serializers.ModelSerializer):
-    department = DepartmentSerializer()
+    # department = DepartmentSerializer()
     class Meta:
         model = Doctor
         fields = '__all__'

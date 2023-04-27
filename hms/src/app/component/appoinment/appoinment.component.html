@@ -34,59 +34,74 @@
                     <h2 class="mb-2 title-color"><b>Book an appoinment</b></h2>
                     <p class="mb-4">Mollitia dicta commodi est recusandae iste, natus eum asperiores corrupti qui velit
                         . Iste dolorum atque similique praesentium soluta.</p>
-                    <form class="appoinment-form">
+                    <form class="appoinment-form" #appointmentForm="ngForm" (ngSubmit)="onSubmit(appointmentForm.value)">
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="form-group m-2">
-                                    <select class="form-control" (change)="onChange($event)">
-                                        <option>Select Department</option> 
+                                    <select class="form-select" aria-label="default" (change)="onChange($event)" ngModel name="department">
+                                        <option value="default" selected>default</option>
                                         <option *ngFor="let department of departmentList" value="{{department.id}}">{{department.name}}</option> 
+                                        <!-- <option *ngFor="let department of departmentList" [value]="parseInt(department.id)">{{department.name}}</option>  -->
 
                                     </select>
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group m-2">
-                                    <select class="form-control">
+                                    <select class="form-select" ngModel name="doctor">
                                         <option>Select Doctors</option>
                                         <option *ngFor="let doctor of doctorList" value="{{doctor.id}}">{{doctor.name}}</option>
+                                        <!-- <option *ngFor="let doctor of doctorList" [value]="parseInt(doctor.id)">{{doctor.name}}</option> -->
                                     </select>
                                 </div>
                             </div>
 
                             <div class="col-lg-6">
                                 <div class="form-group m-2">
-                                    <input name="date" id="date" type="date" class="form-control"
-                                        placeholder="dd/mm/yyyy">
+                                    <input type="date" class="form-control"
+                                        placeholder="dd/mm/yyyy" ngModel name="appointment_date">
                                 </div>
                             </div>
 
                             <div class="col-lg-6">
                                 <div class="form-group m-2">
-                                    <input name="time" type="text" class="form-control" placeholder="Time">
+                                    <input type="time" class="form-control" placeholder="Time" ngModel name="appointment_time">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group m-2">
-                                    <input name="name" type="text" class="form-control"
-                                        placeholder="Full Name">
+                                    <input type="text" class="form-control"
+                                        placeholder="Full Name" ngModel name="name">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group m-2">
+                                    <input type="text" class="form-control"
+                                        placeholder="Place" ngModel name="place">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group m-2">
+                                    <input type="email" class="form-control"
+                                        placeholder="Email" ngModel name="email">
                                 </div>
                             </div>
 
                             <div class="col-lg-6">
                                 <div class="form-group m-2">
-                                    <input name="phone" type="Number" class="form-control"
-                                        placeholder="Phone Number">
+                                    <input type="number" class="form-control"
+                                        placeholder="Phone Number" ngModel name="phone">
                                 </div>
                             </div>
                         </div>
                         <div class="form-group-2 m-2 mb-4">
-                            <textarea name="message" id="message" class="form-control" rows="6"
-                                placeholder="Your Message"></textarea>
+                            <textarea class="form-control" rows="6"
+                                placeholder="Your Message" ngModel name="message"></textarea>
                         </div>
 
-                        <a class="btn btn-main btn-round-full m-2" href="confirmation.html">Make Appoinment<i
-                                class="icofont-simple-right ml-2"></i></a>
+                        <button type="submit" class="btn btn-main btn-round-full m-2">
+                            <!-- <i class="icofont-simple-right ml-2"></i> -->
+                            Make Appoinment</button> 
                     </form>
                 </div>
             </div>
