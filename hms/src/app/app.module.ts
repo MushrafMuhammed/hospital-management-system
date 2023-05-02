@@ -32,7 +32,7 @@ import { AppoinmentComponent } from './component/appoinment/appoinment.component
     ContactComponent,
     NavbarTabsComponent,
     PagenotfoundComponent,
-    AppoinmentComponent  
+    AppoinmentComponent,
     
   ],
   imports: [

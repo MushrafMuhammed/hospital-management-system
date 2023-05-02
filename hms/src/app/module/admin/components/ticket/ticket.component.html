@@ -1,4 +1,4 @@
-    <app-navbar></app-navbar>
+<app-navbar></app-navbar>
 <div class="row">
     <div class="col-md-2">
         <app-side-bar></app-side-bar>
@@ -10,24 +10,25 @@
             <div class="row bg-light shadow  mb-3 rounded">
                 <div class="d-flex flex-row p-3">
                     <div>
-                        <h5><b>Doctors</b></h5>
+                        <h5><b>Tickets List</b></h5>
                     </div>
-                    <div class=" px-5">Total Number of Doctors - {{count}}</div>
-                    <!-- <div class=" px-5">Total Number of Active Doctors - 3</div> -->
+                    <div class=" px-5">Total Number of Tickets - {{totalTicket}}</div>
+                    <!-- <div class=" px-5">Total Number of Active Tickets - 3</div> -->
                 </div>
             </div>
-
+        
             <div class="row">
                 <table class="table">
-                    <thead class="bg-dark">
+                    <thead class="bg-dark"  >
                         <tr class="th_row text-light">
-                            <th class="font-13 border-0 min-150">Name</th>
-                            <th class="font-13 border-0 min-150">Department</th>
-                            <th class="font-13 border-0 min-150">Qualification</th>
+                            <th class="font-13 border-0 min-150">ID</th>
+                            <th class="font-13 border-0 min-150">Generated Date</th>
                             <th class="font-13 border-0 min-150">
-                                Number
+                                name
                             </th>
+                            <th class="font-13 border-0 min-100">Phone</th>
                             <th class="font-13 border-0 min-100">Email</th>
+
                             <!-- <th class="font-13 border-0 min-150">
                                 Status
                             </th> -->
@@ -35,31 +36,36 @@
                     </thead>
                     <tbody class="tr_hover">
                         <!-- ko foreach: subscribersList -->
-                        <tr *ngFor="let doctor of doctors">
-
+                        <tr *ngFor="let ticket of tickets">
                             <td class="font-13 text-black-50 pointer">
-                                <!-- ko text: username -->{{doctor.name}}<!-- /ko -->
+                                <!-- ko text: username -->{{ticket.id}}<!-- /ko -->
                             </td>
                             <td class="font-13 text-black-50 pointer">
                                 <a style="  color: inherit;" href="">
-                                    <!-- ko text: name -->{{doctor.department.name}}<!-- /ko -->
+                                    <!-- ko text: name -->{{ticket.generatedDate}}<!-- /ko -->
                                 </a>
                             </td>
                             <td class="font-13 text-black-50 pointer">
-                                <!-- ko text: mobile_number -->{{doctor.qualification}}<!-- /ko -->
+                                <!-- ko text: mobile_number -->{{ticket.name}}<!-- /ko -->
                             </td>
                             <td class="font-13 text-black-50 pointer">
-                                <!-- ko text:  -->{{doctor.phone}}<!-- /ko -->
+                                <!-- ko text: plan_name -->{{ticket.phone}}<!-- /ko -->
                             </td>
                             <td class="font-13 text-black-50 pointer">
-                                <!-- ko text:  -->{{doctor.email}}<!-- /ko -->
+                                <!-- ko text: plan_name -->{{ticket.email}}<!-- /ko -->
                             </td>
-
+        
+                            <!-- <td class="font-13 pointer text-success">
+                                <i class="fa fa-circle pe-2 font-11"></i>
+                                Active
+                            </td> -->
                         </tr>
                         <!-- /ko -->
                     </tbody>
                 </table>
             </div>
         </div>
+
     </div>
 </div>
+

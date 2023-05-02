@@ -47,6 +47,14 @@ export class AdministratorService {
     return this.http.get(this.baseUrl2 + 'view-patients')
   }
 
+  viewTickets():Observable<any>{
+    return this.http.get(this.baseUrl + 'view-tickets')
+  }
+
+  viewAppointments():Observable<any>{
+    return this.http.get(this.baseUrl + 'view-appointment')
+  }
+
 
   getToken() {
     return !!localStorage.getItem('logToken')

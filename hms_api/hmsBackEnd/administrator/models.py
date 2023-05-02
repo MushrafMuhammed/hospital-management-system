@@ -1,3 +1,4 @@
+import datetime
 from django.db import models
 
 # Create your models here.
@@ -21,3 +22,14 @@ class Doctor(models.Model):
     password = models.CharField(max_length=20)
     department = models.ForeignKey(Department, on_delete=models.CASCADE)
     profile_img =  models.ImageField(upload_to="doctor/")
+
+class OpenTickets(models.Model):
+    name = models.CharField(max_length=200)
+    address = models.CharField(max_length=1000)
+    place =  models.CharField(max_length=200)
+    city = models.CharField(max_length=200)
+    state = models.CharField(max_length=200)
+    phone = models.BigIntegerField(default=0)
+    email = models.EmailField(default='')
+    message = models.CharField(max_length=2000)
+    generatedDate = models.DateTimeField(default=datetime.date.today())

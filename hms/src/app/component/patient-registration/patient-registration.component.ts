@@ -35,7 +35,7 @@ export class PatientRegistrationComponent {
     console.log(patientData)
 
     this.service.patientReg(patientData).subscribe((res:{message:any})=>{
-      console.log(res.message)
+      // console.log(res.message)
       alert(res.message)
     })
 

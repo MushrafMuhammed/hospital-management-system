@@ -12,8 +12,8 @@
                     <div>
                         <h5><b>Appointments</b></h5>
                     </div>
-                    <div class=" px-5">Total Number of Appointments - 20</div>
-                    <div class=" px-5">Total Number of Active Appointments - 3</div>
+                    <div class=" px-5">Total Number of Appointments - {{totalAppointment}}</div>
+                    <!-- <div class=" px-5">Total Number of Active Appointments - 3</div> -->
                 </div>
             </div>
         
@@ -24,7 +24,7 @@
                             <th class="font-13 border-0 min-150">ID</th>
                             <th class="font-13 border-0 min-150">Name</th>
                             <th class="font-13 border-0 min-150">
-                                Number
+                                Doctor
                             </th>
                             <th class="font-13 border-0 min-100">Appointment Date</th>
                             <!-- <th class="font-13 border-0 min-150">
@@ -34,20 +34,20 @@
                     </thead>
                     <tbody class="tr_hover">
                         <!-- ko foreach: subscribersList -->
-                        <tr>
+                        <tr *ngFor="let appointment of appointments">
                             <td class="font-13 text-black-50 pointer">
-                                <!-- ko text: username -->32074046400122<!-- /ko -->
+                                <!-- ko text: username -->{{appointment.token_no}}<!-- /ko -->
                             </td>
                             <td class="font-13 text-black-50 pointer">
                                 <a style="  color: inherit;" href="">
-                                    <!-- ko text: name -->Girish<!-- /ko -->
+                                    <!-- ko text: name -->{{appointment.name}}<!-- /ko -->
                                 </a>
                             </td>
                             <td class="font-13 text-black-50 pointer">
-                                <!-- ko text: mobile_number -->9846537013<!-- /ko -->
+                                {{appointment.doctor.name}}
                             </td>
                             <td class="font-13 text-black-50 pointer">
-                                <!-- ko text: plan_name -->21 Feb 2023<!-- /ko -->
+                                {{appointment.appointment_date}}
                             </td>
         
                             <!-- <td class="font-13 pointer text-success">

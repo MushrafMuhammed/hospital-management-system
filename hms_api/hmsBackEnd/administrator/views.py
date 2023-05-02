@@ -2,9 +2,11 @@ from django.shortcuts import render
 from django.http import JsonResponse
 from rest_framework.decorators import api_view
 
-from administrator.serializer import AdministratorSerializer, DepartmentSerializer, DoctorSerializer
+from administrator.serializer import AdministratorSerializer, DepartmentSerializer, DoctorSerializer, TicketSerializer
+from doctor.models import Appointment
+from doctor.serializer import AppointmentSerializer
 
-from . models import Administrator, Department, Doctor
+from . models import Administrator, Department, Doctor, OpenTickets
 
 # Create your views here.
 
@@ -126,3 +128,34 @@ def getDoctor(request,deptData):
     serialized_data = DoctorSerializer(doctots, many=True)
     
     return JsonResponse({'doctors':serialized_data.data})
+
+@api_view(['POST'])
+def genOpenTicket(request):
+    msg=''
+
+    params = request.data
+    print(params)
+    serialized_data = TicketSerializer(data=params)
+    print(serialized_data)
+    if serialized_data.is_valid():
+        serialized_data.save()
+        msg = 'Ticket generated'
+    else:
+        msg= 'Invalid entry'
+    return JsonResponse({'message':msg})
+
+@api_view(['GET'])
+def listOpenTicket(request):
+    tickets = OpenTickets.objects.all()
+    serialized_data =  TicketSerializer(tickets, many=True)
+    print(serialized_data.data)
+    ticketsCount= tickets.count()
+    return JsonResponse({'ticketList':serialized_data.data, 'totalTicket':ticketsCount})
+
+@api_view(['GET'])
+def viewAppointments(request):
+    appointment = Appointment.objects.all()
+    serialized_data =  AppointmentSerializer(appointment, many=True)
+    # print(serialized_data.data)
+    appointmentCount= appointment.count()
+    return JsonResponse({'appointmentList':serialized_data.data, 'totalAppointment':appointmentCount})

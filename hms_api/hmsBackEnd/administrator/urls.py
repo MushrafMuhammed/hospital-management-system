@@ -10,5 +10,9 @@ urlpatterns = [
     path('my-profile/<int:token>', views.view_profile),
     path('change-password', views.changePassword),
     path('get-doctor/<int:deptData>', views.getDoctor),
+    path('get-openTocken', views.genOpenTicket),
+    path('view-tickets', views.listOpenTicket),
+    path('view-appointment', views.viewAppointments),
 
-]
+
+]                                                                                                                                                         

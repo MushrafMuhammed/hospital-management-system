@@ -167,4 +167,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
+RAZOPAY_KEY_ID= "rzp_test_LobQFmdaxz5yzX"	
+RAZOPAY_KEY_SECRET=	"Qm8dnnK5z1uZL365lzt1WbvR"

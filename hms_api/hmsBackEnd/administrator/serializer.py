@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from administrator.models import Administrator, Department, Doctor
+from administrator.models import Administrator, Department, Doctor, OpenTickets
 
 class AdministratorSerializer(serializers.ModelSerializer):
     class Meta:
@@ -13,8 +13,13 @@ class DepartmentSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class DoctorSerializer(serializers.ModelSerializer):
-    # department = DepartmentSerializer()
+    department = DepartmentSerializer()
     class Meta:
         model = Doctor
+        fields = '__all__'
+
+class TicketSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = OpenTickets
         fields = '__all__'
 

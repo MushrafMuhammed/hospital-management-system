@@ -13,6 +13,7 @@ import { ViewAppointmentsComponent } from './components/view-appointments/view-a
 import { ViewDoctorsComponent } from './components/view-doctors/view-doctors.component';
 import { ViewPatientsComponent } from './components/view-patients/view-patients.component';
 import { AuthGuard } from './guard/auth.guard';
+import { TicketComponent } from './components/ticket/ticket.component';
 
 const routes: Routes = [
   {
@@ -29,6 +30,7 @@ const routes: Routes = [
       { path: "view-appointment", component: ViewAppointmentsComponent, canActivate:[AuthGuard] },
       { path: "view-doctors", component:ViewDoctorsComponent, canActivate:[AuthGuard] },
       { path : "view-patients", component:ViewPatientsComponent, canActivate:[AuthGuard]},
+      { path : "view-tickets", component:TicketComponent, canActivate:[AuthGuard]},
       { path: "profile", component: ProfileComponent, canActivate:[AuthGuard] },
 
       
