@@ -1,1 +1,74 @@
-<p>add-prescription works!</p>
+<div class="container-fluid page">
+    <div class="d-flex page__box p-3 mt-2">Prescription</div>
+    <div class="page__content shadow p-3 position-relative">
+        <!-- <div class="page__content-data position-absolute text-center"> -->
+        <div class="page__content-data position-absolute">
+
+            <div class="card-body p-md-5 text-black">
+                <h3 class="mb-5 text-uppercase text-center"><b>Generate Prescription</b></h3>
+
+                <form>
+                    <div class="row">
+                        <div class="form-group mb-4">
+                            <label class="form-label" for="form3Example1m">Patient Name:</label>
+                            <select class="form-group form-select" aria-label="Default select example" ngModel
+                                name="department" style="width: 50%;">
+                                <option selected>Select patient</option>
+                                <option>option 1 </option>
+                                <option>option 1 </option>
+                                <option>option 1 </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col ">
+                            <div class="form-group mb-5 me-3">
+                                <label class="form-label" for="form3Example9">Medice:</label>
+                                <select class="form-group form-select" aria-label="Default select example" ngModel
+                                    name="department">
+                                    <option selected>Select medice</option>
+                                    <option>option 1 </option>
+                                    <option>option 1 </option>
+                                    <option>option 1 </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col ">
+                            <div class="form-group mb-4 me-3">
+                                <label class="form-label" for="form3Example9">Dose:</label>
+                                <select class="form-group form-select" aria-label="Default select example" ngModel
+                                    name="department">
+                                    <option selected>Select dose</option>
+                                    <option>option 1 </option>
+                                    <option>option 1 </option>
+                                    <option>option 1 </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group mb-5  me-3">
+                                <label class="form-label" for="form3Example9">Days:</label>
+                                <input type="number" class="form-control" name="profile_img" />
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group mb-5  me-3">
+                                <label class="form-label" for="form3Example9">Next Review:</label>
+                                <input type="date" class="form-control" name="date" />
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group mb-4 p-3">
+                                <button type="" class="btn btn-primary btn-block mb-3 mt-3">
+                                    Add +
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>

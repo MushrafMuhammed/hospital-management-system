@@ -1,0 +1,5 @@
+@import "../home/home.component.css";
+
+  .tr_hover :hover {
+    background-color: #f1f4f8;
+}

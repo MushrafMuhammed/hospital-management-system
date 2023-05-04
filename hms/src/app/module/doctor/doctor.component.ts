@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./doctor.component.css']
 })
 export class DoctorComponent {
+  title = 'admin-panel-layout';
+  sideBarOpen = true;
 
+  sideBarToggler() {
+    this.sideBarOpen = !this.sideBarOpen;
+  }
+  
 }

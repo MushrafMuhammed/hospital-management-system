@@ -36,8 +36,7 @@ import { TicketComponent } from './components/ticket/ticket.component';
     ViewPatientsComponent,
     ProfileComponent,
     TicketComponent
-    
-    
+  
     
   ],
   imports: [
